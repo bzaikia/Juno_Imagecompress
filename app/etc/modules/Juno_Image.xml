@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Juno_Image>
+            <active>true</active>
+            <codePool>local</codePool>
+                    </Juno_Image>
+    </modules>
+</config>
