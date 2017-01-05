@@ -8,9 +8,9 @@
                         <children>
                             <config>
                                 <children>
-                                    <juno>
+                                    <juno_image>
                                         <title>Juno Image</title>
-                                    </juno>
+                                    </juno_image>
                                 </children>
                             </config>
                         </children>
