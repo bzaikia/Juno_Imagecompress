@@ -17,7 +17,7 @@ class Juno_Image_Model_Observer
             return;
         }
 
-        if (file_get_contents(Mage::getStoreConfig(Juno_Image_Helper_Data::PATH_HOST)) != 'ok') {
+        if (file_get_contents(Mage::getStoreConfig(Juno_Image_Helper_Image::PATH_HOST)) != 'ok') {
             return;
         }
         $folders = explode(';', Mage::getStoreConfig(self::PATH_FOLDER));
