@@ -13,6 +13,13 @@ class Juno_Image_Model_Observer
      */
     protected function _initImages()
     {
+        if (!Mage::helper('juno_minify')->isEnable()) {
+            return;
+        }
+
+        if (file_get_contents(Mage::getStoreConfig(Juno_Image_Helper_Data::PATH_HOST)) != 'ok') {
+            return;
+        }
         $folders = explode(';', Mage::getStoreConfig(self::PATH_FOLDER));
         foreach ($folders as $folder) {
             $path = Mage::getBaseDir() . DS . $folder . DS;
