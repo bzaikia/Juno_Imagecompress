@@ -18,10 +18,9 @@ class Juno_Image_Helper_Image extends Mage_Core_Helper_Abstract
         $filePath = Mage::getBaseDir() . DS . $img;
         $str = file_get_contents($this->getOptimizeImageUrl($imgUrl));
         if (strlen($str) > 1000) {
-            file_put_contents($filePath, file_get_contents($str));
+            file_put_contents($filePath, $str);
+            $this->logImage($filePath);
         }
-
-        $this->logImage($filePath);
     }
 
     /**
