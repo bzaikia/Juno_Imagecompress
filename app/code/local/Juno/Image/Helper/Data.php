@@ -25,12 +25,22 @@ class Juno_Image_Helper_Data extends Mage_Core_Helper_Abstract
             $resource = Mage::getSingleton('core/resource');
             $result = array();
             $sql = $this->_getWriteAdapter()
-                ->select()->from($resource->getTableName('image_compress'), 'path');
+                ->select()->from($resource->getTableName('image_compress'));
             $result = $this->_getWriteAdapter()->fetchCol($sql);
-
+            array_walk($result, array($this, '_checkImageHash'));
             $this->_images = $result;
         }
+
         return $this->_images;
+    }
+
+    protected function _checkImageHash(&$item)
+    {
+        if (md5_file($item['path']) != $item['hash']) {
+            $item = $item['path'];
+        } else {
+            $item = '';
+        }
     }
 
     /**

@@ -46,9 +46,10 @@ class Juno_Image_Helper_Image extends Mage_Core_Helper_Abstract
          */
         $writeAdapter = $resource->getConnection('core_write');
         $data = array(
-            'path' => $img
+            'path' => $img,
+            'hash' => md5_file($img)
         );
+        $writeAdapter->delete($resource->getTableName('image_compress'), 'path = "' . $img . '"');
         $writeAdapter->insert($resource->getTableName('image_compress'), $data);
-        Mage::log($img, null, 'image_compress.log');
     }
 }

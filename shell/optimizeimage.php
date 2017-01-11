@@ -3,7 +3,7 @@
  * Author: Hieu Nguyen
  */
 
-require_once 'shell/abstract.php';
+require_once 'abstract.php';
 
 class Optimize_Image extends Mage_Shell_Abstract
 {
