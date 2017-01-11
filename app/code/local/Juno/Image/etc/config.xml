@@ -37,7 +37,7 @@
                     <cron_expr>0 1 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>juno_image/observer::optimizeImages</model>
+                    <model>juno_image/observer::optimizeImage</model>
                 </run>
             </juno_optimize_image>
         </jobs>
