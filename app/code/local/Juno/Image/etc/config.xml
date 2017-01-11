@@ -40,6 +40,15 @@
                     <model>juno_image/observer::optimizeImages</model>
                 </run>
             </juno_optimize_image>
+
+            <juno_optimize_image_clean>
+                <schedule>
+                    <cron_expr>0 2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>juno_image/observer::clean</model>
+                </run>
+            </juno_optimize_image_clean>
         </jobs>
     </crontab>
 </config>

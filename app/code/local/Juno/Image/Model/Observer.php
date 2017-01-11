@@ -69,4 +69,31 @@ class Juno_Image_Model_Observer
     {
         return substr($imgPath, strlen(Mage::getBaseDir()) + 1);
     }
+
+    public function clean()
+    {
+        $resource = Mage::getSingleton('core/resource');
+        $sql = $this->_getWriteAdapter()
+            ->select()->from($resource->getTableName('image_compress'));
+        $result = $this->_getWriteAdapter()->fetchAll($sql);
+        foreach ($result as $item) {
+            if (!file_exists($item['path'])) {
+                $this->_getWriteAdapter()
+                    ->delete($resource->getTableName('image_compress'), 'path = "' . $item['path'] . '"');
+            }
+        }
+    }
+
+    /**
+     * @return Magento_Db_Adapter_Pdo_Mysql
+     */
+    protected function _getWriteAdapter()
+    {
+        $resource = Mage::getSingleton('core/resource');
+        /**
+         * @var $writeAdapter Magento_Db_Adapter_Pdo_Mysql
+         */
+        $writeAdapter = $resource->getConnection('core_write');
+        return $writeAdapter;
+    }
 }
