@@ -14,7 +14,6 @@ class Juno_Image_Helper_Image extends Mage_Core_Helper_Abstract
      */
     public function compress($img)
     {
-        echo $img . "\n";
         $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . $img;
         $filePath = Mage::getBaseDir() . DS . $img;
         $str = file_get_contents($this->getOptimizeImageUrl($imgUrl));
