@@ -1,6 +1,6 @@
 # Juno_Imagecompress
 
-# Supported config:
+# Supported config (Configuration > General > Image Compress): 
 
 * enable/disable the module
 * image folder that need to optimize
