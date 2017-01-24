@@ -13,5 +13,7 @@
 
 * The module does not optimize images myself, it send the image to external server and get the optimized version back, then the original image will be replaced by optimized version.
 
+* original image file can be found under image_bk folder  
+
 need more support ? contact hieu@junowebdesign.com
 
