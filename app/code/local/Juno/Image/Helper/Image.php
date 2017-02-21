@@ -64,7 +64,11 @@ class Juno_Image_Helper_Image extends Mage_Core_Helper_Abstract
         $filePathArr = explode('/', $backupFilePath);
         $fileName = array_pop($filePathArr);
         $backupPath = implode('/', $filePathArr);
-        mkdir($backupPath, 0755, true);
-        copy($filePath, $backupPath . DS . $fileName);
+        if (!file_exists($backupPath)) {
+            mkdir($backupPath, 0755, true);
+        }
+        if (!file_exists($backupPath . DS . $fileName)) {
+            copy($filePath, $backupPath . DS . $fileName);
+        }
     }
 }
